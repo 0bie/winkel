@@ -1,0 +1,153 @@
+.cardlist {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardlist-item {
+  position: relative;
+  flex-grow: 1;
+  flex-basis: calc(100% / 2 - 24px);
+  width: calc(100% / 2 - 24px);
+  margin-bottom: size(md);
+  border: 0.0625em solid;
+  overflow: hidden;
+  border-radius: 0.5em;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.2);
+}
+
+.cardlist-media img {
+  display: block;
+  object-fit: contain;
+}
+
+.cardlist-media .image-container {
+  width: 100%;
+}
+
+.cardlist-media .image-container::after {
+  content: "";
+  padding-bottom: 56.25%;
+  display: block;
+}
+
+.cardlist-content {
+  padding-top: size(md);
+}
+
+.cardlist-header {
+  padding: size(xs);
+  border-bottom: 0.0625em solid #d0d1d5;
+}
+
+.cardlist-title {
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  margin-bottom: size(xxs);
+}
+
+.cardlist-meta {
+  color: var(--theme-accent-fg);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.cardlist-meta .meta-text {
+  font-size: 0.75rem;
+}
+
+.cardlist-footer {
+  padding: size(xs);
+}
+
+.cardlist-footer .meta-price {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.cardlist-footer .meta-source {
+  color: var(--theme-accent-fg);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.cardlist-footer .meta-duration {
+  display: block;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.cardlist-footer .meta-notice {
+  color: var(--theme-accent-fg);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+
+.cardlist-footer .meta-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardlist-footer .meta-item {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.cardlist-footer .meta-item:last-of-type {
+  flex-grow: 0;
+}
+
+.cardlist-footer .meta-item:not(:last-of-type) {
+  margin-right: size(sm);
+  margin-bottom: size(xxs);
+}
+
+.cardlist-footer .meta-date {
+  font-size: 0.875rem;
+}
+
+.cardlist-footer .meta-unit {
+  margin-left: size(xxs);
+}
+
+.cardlist-placeholder .placeholder-text {
+  font-size: 0;
+  height: 16px;
+  width: 80px;
+  background-color: #fafafa;
+  margin-bottom: 4px;
+}
+
+.cardlist-actions .btn--primary {
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+@include breakpoint('min', 1700px) {
+  .overview-offers .cardlist-header {
+    padding-top: size(sm);
+  }
+}
+
+@include breakpoint('min', 760px) {
+  .cardlist-item {
+    flex-basis: calc(100% / 4 - 24px);
+    width: calc(100% / 4 - 24px);
+  }
+
+  .cardlist-item:not(:last-of-type) {
+    margin-right: size(md);
+  }
+
+  .cardlist-content {
+    padding-top: size(sm);
+  }
+}
+
+@include breakpoint('min', 2045px) {
+  .cardlist-content {
+    padding-top: 32px;
+  }
+}

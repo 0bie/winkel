@@ -1,0 +1,37 @@
+.logo {
+  color: #6b6969;
+  display: inline-block;
+}
+
+.logo .icon {
+  font-size: 1rem;
+}
+
+.logo-text {
+  position: relative;
+  top: 2px;
+  font-size: 1.375rem;
+  font-weight: normal;
+  text-transform: capitalize;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-text span {
+  opacity: 0.89;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: theme(default);
+}
+
+@include breakpoint('max', 759px) {
+  .logo a {
+    font-size: 1.375rem;
+  }
+}
+
+.logo a {
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,61 @@
+{
+  "name": "winkel-server",
+  "version": "0.0.1",
+  "description": "server for winkel project",
+  "main": "src/index.js",
+  "scripts": {
+    "seed": "sh ./seed.sh",
+    "start": "node dist/index.js",
+    "build:prod": "babel src --out-dir dist",
+    "build:dev": "nodemon --exec yarn restart",
+    "prebuild:prod": "rimraf dist && yarn lint",
+    "restart": "rimraf dist && yarn build:prod && yarn start",
+    "lint": "yarn eslint 'src/**/*.js'",
+    "eslint": "./node_modules/.bin/eslint",
+    "test:schema": "npm test -- -t schema",
+    "test:resolvers": "npm test -- -t resolvers",
+    "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles",
+    "deploy": "forever start dist/index.js >> /var/log/forever/forever.log"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": ["<rootDir>/test-setup.js"],
+    "testPathIgnorePatterns": [
+      "dist/"
+    ],
+    "restoreMocks": true
+  },
+  "author": "Obie",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.2.2",
+    "@babel/plugin-proposal-class-properties": "7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.3.1",
+    "@babel/plugin-transform-runtime": "7.2.0",
+    "@babel/preset-env": "7.3.1",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "24.5.0",
+    "cross-env": "5.2.0",
+    "eslint": "5.15.0",
+    "graphql-codegen-core": "0.16.1",
+    "jest": "24.5.0",
+    "nodemon": "1.18.9",
+    "rimraf": "2.6.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.3.1",
+    "@babel/runtime-corejs2": "7.3.1",
+    "apollo-server": "2.3.3",
+    "bcrypt": "3.0.3",
+    "cuid": "2.1.4",
+    "graphql": "14.1.1",
+    "graphql-import": "0.7.1",
+    "graphql-tools": "4.0.4",
+    "lodash": "4.17.11",
+    "mongoose": "5.4.9",
+    "validator": "10.11.0"
+  }
+}

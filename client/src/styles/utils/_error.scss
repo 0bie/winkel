@@ -1,0 +1,66 @@
+.error-boundary {
+  margin-top: size(md);
+  background-color: #fafafa;
+  padding: size(sm) size(sm) size(xxxl) size(sm);
+}
+
+.error-boundary .notice--error {
+  border: 0;
+  margin-bottom: size(md);
+}
+
+.error-boundary .notice--error p {
+  font-size: 0.875rem;
+}
+
+.btn--error .btn-text {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.notice--error svg {
+  flex-shrink: 0;
+  margin-left: size(xs);
+}
+
+.modal--error .modal {
+  padding: size(sm);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input:required,
+textarea:required,
+select:required {
+  outline: 0;
+  box-shadow: none;
+}
+
+@include breakpoint('min', 500px) {
+  .error-boundary {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error-boundary .btn--error {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+  }
+}
+
+@include breakpoint('min', 760px) {
+  .error-boundary {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+  }
+}
+
+@include breakpoint('min', 957px) {
+  .error-boundary {
+    max-width: 65%;
+  }
+}

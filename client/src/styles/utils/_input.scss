@@ -1,0 +1,22 @@
+.input-label {
+  display: inline-block;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  margin-bottom: size(xxs);
+}
+
+.input--note {
+  resize: none;
+  overflow-y: scroll;
+}
+
+.input[disabled] {
+  background-color: transparent;
+}
+
+.panel-input select {
+  padding-right: 1.25em;
+  color: theme(default);
+  appearance: none;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAMCAYAAACulacQAAAAQUlEQVQYla2PMQ4AMAgCwV/zejrZWBK3shhzKIGSMGQA7KUCzHmh8coNE1wD7Y29mR8hJa2hhVE6D/ttGpiZTOMBbsEN6P1Z68sAAAAASUVORK5CYII=) no-repeat scroll right 10px center;
+}

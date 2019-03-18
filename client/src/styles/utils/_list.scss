@@ -1,0 +1,13 @@
+.list-empty {
+  padding-left: size(xs);
+}
+
+.list-empty .notice {
+  border: 0;
+  padding: 0;
+  color: #6b6969;
+}
+
+.list-empty .notice p {
+  font-size: 14px;
+}

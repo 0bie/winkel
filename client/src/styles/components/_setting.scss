@@ -1,0 +1,13 @@
+.content--setting {
+  padding: size(sm);
+}
+
+.panel-action .btn--setting {
+  min-width: 60px;
+}
+
+@include breakpoint('min', 957px) {
+  .content--setting {
+    padding: size(md);
+  }
+}

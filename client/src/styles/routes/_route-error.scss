@@ -1,0 +1,73 @@
+@import "~@0bie/pattern-lib/src/styles/base/defaults";
+@import "~@0bie/pattern-lib/src/styles/base/functions";
+@import "~@0bie/pattern-lib/src/styles/base/mixins";
+
+.route--error {
+  padding: size(lg);
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-error {
+  flex-grow: 1;
+}
+
+.content-error h1,
+.content-error h2 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.title-error {
+  font-size: 4.5rem;
+}
+
+.text-error {
+  max-width: 75%;
+  font-size: 1rem;
+  margin-bottom: size(lg);
+}
+
+.image-error svg {
+  opacity: 0.75;
+}
+
+.btn--redirect {
+  text-decoration: none;
+}
+
+@include breakpoint('max', 759px) {
+  .title-error {
+    font-size: 3.75rem;
+  }
+
+  .image-error svg {
+    width: 12.5em;
+    height: 12.5em;
+  }
+}
+
+@include breakpoint('max', 599px) {
+  .route--error {
+    flex-direction: column;
+    padding: size(sm);
+    margin-bottom: size(xl);
+  }
+
+  .content-error {
+    order: 1;
+    margin-bottom: size(lg);
+  }
+
+  .image-error {
+    order: 0;
+  }
+
+  .text-error {
+    max-width: none;
+  }
+
+  .image-error svg {
+    width: 100%;
+  }
+}

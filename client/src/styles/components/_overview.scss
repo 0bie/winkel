@@ -1,0 +1,131 @@
+.overview {
+  margin-bottom: size(xxl);
+}
+
+.overview-title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.overview-title::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #d0d1d5;
+  position: absolute;
+  top: 50%;
+}
+
+.overview-title .title-text {
+  font-size: 0.8125rem;
+  background-color: #fafafa;
+  padding-left: (16 / 13 * 1em);
+  padding-right: (16 / 13 * 1em);
+  position: relative;
+  z-index: 5;
+  text-transform: uppercase;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.overview .cardlist-item {
+  background-color: #fff;
+}
+
+.overview-offers {
+  margin-bottom: size(xs);
+  padding: size(sm) size(sm) 0;
+}
+
+.overview-offers .cardlist-item:nth-child(odd) {
+  margin-right: size(md);
+}
+
+.overview-actions {
+  padding: size(sm) size(sm) 0;
+  margin-bottom: size(xxxl);
+}
+
+.overview-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-panel .panel-header {
+  padding: size(xs) size(sm) 0 size(sm);
+}
+
+.overview-panel form {
+  padding: size(xs) size(sm) size(sm);
+}
+
+.overview-panel button,
+.overview-panel input,
+.overview-panel select,
+.overview-panel textarea {
+  appearance: none;
+  border-radius: 0.125em;
+}
+
+.overview-panel textarea {
+  max-height: 150px;
+}
+
+.overview-panel input,
+.overview-panel select {
+  padding: 6px;
+}
+
+.overview-panel .title-text {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.overview-panel .panel-content {
+  padding: size(xs);
+}
+
+.overview-panel .panel-item {
+  flex-grow: 1;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 0.5em;
+  border: 0.0625em solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.2);
+}
+
+.overview-panel .panel-item:not(:last-of-type) {
+  margin-bottom: size(md);
+}
+
+@include breakpoint('min', 760px) {
+  .overview-panel {
+    flex-direction: row;
+  }
+
+  .overview-panel .panel-item {
+    flex-basis: calc(100% / 2 - 24px);
+    width: calc(100% / 2 - 24px);
+  }
+
+  .overview-panel .panel-item:not(:last-of-type) {
+    margin-right: size(md);
+    margin-bottom: 0;
+  }
+}
+
+@include breakpoint('min', 957px) {
+  .overview-actions {
+    padding: size(md) size(md) 0;
+  }
+  .overview-offers {
+    padding: size(md) size(md) 0;
+  }
+}

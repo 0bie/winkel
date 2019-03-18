@@ -1,0 +1,98 @@
+.navigation-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: size(xxs) size(sm);
+  overflow: hidden;
+  border-bottom: 0.0625em solid #d0d1d5;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-item {
+  display: inline-block;
+}
+
+.navigation-item:last-of-type {
+  max-width: 32px;
+  margin-left: size(xs);
+}
+
+.navigation-item a {
+  display: block;
+  font-size: 0.875rem;
+  padding-left: size(xxs);
+  padding-right: size(xxs);
+  text-decoration: none;
+  text-transform: capitalize;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@include breakpoint('max', 759px) {
+  .navigation-item a {
+    font-size: 0.875rem;
+    padding: size(xs);
+  }
+}
+
+.navigation-item a:hover,
+.navigation-item a:focus,
+.navigation-item a:active,
+.navigation-item a.active {
+  outline: none;
+  text-decoration: underline;
+}
+
+.navigation .btn--menu {
+  position: relative;
+  right: 12px;
+  border: 0;
+}
+
+.navigation .btn--menu::before,
+.navigation .btn--menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1.25em;
+  padding: size(md);
+}
+
+.navigation .btn--menu::before {
+  left: -8px;
+}
+
+.navigation .icon--menu .bar {
+  opacity: 0.8;
+}
+
+.navigation .icon--menu .bar::before {
+  content: "";
+  top: 6px;
+}
+
+.navigation .icon--menu .bar::after {
+  content: "";
+  top: -6px;
+}
+
+.navigation .icon--menu {
+  position: relative;
+}
+
+@include breakpoint('min', 760px) {
+  .navigation .btn--menu {
+    display: none;
+  }
+}
+
+@include breakpoint('max', 759px) {
+  .navigation-container {
+    padding: size(xxs) size(sm);
+    // flex-direction: column;
+  }
+}

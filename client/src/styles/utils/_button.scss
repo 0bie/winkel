@@ -1,0 +1,23 @@
+.btn--primary {
+  border: 0;
+  border-radius: 0.125em;
+  color: var(--theme-default-fg);
+  background-color: var(--theme-default-bg);
+}
+
+.btn-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn--xs .btn-text {
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+/**
+ * Interactive states
+ */
+.btn--primary:hover {
+  background-color: color(theme(default) l(20%));
+}

@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "node": "current",
+        "browsers": ["last 2 versions", "ie >= 11"]
+      },
+      "debug": true,
+      "modules": false,
+      "useBuiltIns": "usage"
+    }]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-react-jsx"],
+    ["@babel/plugin-syntax-dynamic-import"],
+    ["@babel/plugin-proposal-class-properties", {"loose": true}],
+    ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }]
+  ]
+}

@@ -1,0 +1,9 @@
+export {default as handleOrder} from './sendOrder';
+export {default as handleEditUser} from './editUser';
+export {default as getFullName} from './getFullName';
+export {default as handleAddContact} from './addContact';
+export {default as handleAddCompany} from './addCompany';
+export {default as handleEditContact} from './editContact';
+export {default as handleDeleteContact} from './deleteContact';
+export {default as handleDeleteCompany} from './deleteCompany';
+export {default as handleMessageContact} from './messageContact';

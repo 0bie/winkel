@@ -1,0 +1,94 @@
+.infobar {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.0625em solid #d0d1d5;
+}
+
+@include breakpoint('min', 760px) {
+  .infobar-container {
+    display: none;
+  }
+}
+
+.infobar--top {
+  padding: size(xs) size(md);
+  justify-content: space-between;
+}
+
+.infobar--bottom {
+  padding: size(xs) size(md);
+}
+
+.infobar--bottom .btn--menu {
+  position: relative;
+  right: -16px;
+  border: 0;
+}
+
+.infobar--bottom .btn--menu::before,
+.infobar--bottom .btn--menu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1.25em;
+  padding: size(md);
+}
+
+.infobar--bottom .btn--menu::before {
+  left: -8px;
+}
+
+.infobar--bottom .icon--menu .bar {
+  opacity: 0.8;
+}
+
+.infobar--bottom .icon--menu .bar::before {
+  content: "";
+  top: 6px;
+}
+
+.infobar--bottom .icon--menu .bar::after {
+  content: "";
+  top: -6px;
+}
+
+.icon--menu {
+  position: relative;
+}
+
+.infobar--top .avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.infobar--top .avatar {
+  margin-right: size(xs);
+}
+
+.infobar--top .btn {
+  font-size: 0.75rem;
+}
+
+.infobar-role {
+  font-size: 0.8125rem;
+  opacity: 0.8;
+}
+
+.infobar--actions {
+  margin-right: auto;
+}
+
+/**
+ * Interactive states
+ */
+
+.btn--menu:active .icon--menu,
+.btn--menu:focus .icon--menu,
+.btn--menu:hover .icon--menu,
+.btn--menu:focus .icon--menu .bar::before,
+.btn--menu:focus .icon--menu .bar::after,
+.btn--menu:hover .icon--menu .bar::before,
+.btn--menu:hover .icon--menu .bar::after {
+  outline: 0;
+  box-shadow: 0 0 3px #26292b;
+}

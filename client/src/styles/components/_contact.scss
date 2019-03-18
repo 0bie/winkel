@@ -1,0 +1,131 @@
+.content--contact {
+  padding: size(sm);
+  column-gap: size(md);
+}
+
+.content--contact .contact {
+  width: 100%;
+  display: inline-block;
+  background-color: #fff;
+  margin-bottom: size(md);
+  border-radius: 0.5em;
+  border: 0.0625em solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.2);
+}
+
+.content--contact .contact-header {
+  padding: size(xs) size(sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.0625em solid #d0d1d5;
+}
+
+.contact-header .contact-actions {
+  flex-shrink: 0;
+  position: relative;
+  right: -8px;
+}
+
+.content--contact .contact-content {
+  border-bottom: 0.0625em solid #d0d1d5;
+}
+
+.content--contact .contact-profile {
+  display: flex;
+}
+
+.content--contact .contact-name {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.contact-name .contact-email {
+  display: inline-block;
+  transform: scale(0.7) translate(size(xxs));
+}
+
+.contact-email a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.content--contact .contact-joined {
+  color: var(--theme-accent-fg);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.content--contact .contact-media {
+  margin-right: size(xs);
+}
+
+.content--contact .contact-biography {
+  padding: size(sm);
+}
+
+.content--contact .biography-text {
+  font-size: 0.875rem;
+}
+
+.content--contact .contact-social {
+  padding-left: size(sm);
+  padding-right: size(sm);
+}
+
+.content--contact .contact-footer {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.contact-footer .btn--primary {
+  margin-left: auto;
+  border-radius: 0 0 0.5em;
+}
+
+.content--contact .contact-footer .btn-text {
+  font-size: 0.75rem;
+}
+
+.content--contact .notice {
+  border: 0;
+  padding: 0;
+  color: var(--theme-accent-fg);
+}
+
+.content--contact .notice p {
+  font-size: 14px;
+}
+
+.contact-actions .icon {
+  width: 12px;
+  height: 12px;
+}
+
+@include breakpoint('min', 560px) {
+  .content--contact {
+    column-count: 2;
+    padding-bottom: 14.0625em;
+  }
+}
+
+@include breakpoint('min', 957px) {
+  .content--contact {
+    padding: size(md);
+  }
+}
+
+@include breakpoint('min', 1290px) {
+  .content--contact {
+    column-count: 3;
+  }
+}
+
+@include breakpoint('max', 559px) {
+  .content--contact .contact:last-of-type {
+    margin-bottom: 15.625em;
+  }
+}

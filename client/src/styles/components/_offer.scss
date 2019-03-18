@@ -1,0 +1,71 @@
+.content--offer {
+  padding: size(sm) size(sm) size(xxxl);
+  column-gap: size(md);
+}
+
+.content--offer .cardlist {
+  display: grid;
+  grid-column-gap: size(sm);
+}
+
+.content--offer .cardlist-item {
+  flex-basis: 100%;
+  width: 100%;
+  max-width: none;
+}
+
+.content--offer .cardlist-content {
+  padding-bottom: size(md);
+}
+
+.content--offer .cardlist-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+@include breakpoint('min', 341px) {
+  .content--offer .cardlist {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include breakpoint('min', 660px) {
+  .content--offer .cardlist {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content--offer .cardlist-content {
+    padding-top: size(md);
+  }
+}
+
+@include breakpoint('min', 957px) {
+  .content--offer .cardlist {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@include breakpoint('min', 957px) {
+  .content--contact {
+    padding: size(md);
+  }
+}
+
+@include breakpoint('max', 659px) {
+  .content--offer {
+    padding-bottom: 150px;
+  }
+
+  .content--offer .cardlist {
+    margin-bottom: 150px;
+  }
+}
+
+@include breakpoint('min', 2045px) {
+  .content--offer .cardlist-content {
+    padding-top: 42px;
+  }
+}
