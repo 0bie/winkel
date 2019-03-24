@@ -12,6 +12,7 @@
     "restart": "rimraf dist && yarn build:prod && yarn start",
     "lint": "yarn eslint 'src/**/*.js'",
     "eslint": "./node_modules/.bin/eslint",
+    "test:auth": "npm test -- -t auth",
     "test:schema": "npm test -- -t schema",
     "test:resolvers": "npm test -- -t resolvers",
     "test": "cross-env NODE_ENV=testing jest --forceExit --detectOpenHandles",

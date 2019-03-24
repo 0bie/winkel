@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import {AuthenticationError} from 'apollo-server';
 
 import {Contact} from '../contact.model/';
 import resolvers from '../contact.resolvers';
@@ -25,7 +26,6 @@ describe('Resolvers', () => {
     });
 
     test('Contact can query all contacts', async () => {
-      // const user = mongoose.Types.ObjectId();
       const contacts = await Contact.create([
         {
           firstName: 'alice',
@@ -118,6 +118,117 @@ describe('Resolvers', () => {
         user: {role: 'admin'}
       });
       expect(`${result._id}`).toBe(`${contact._id}`);
+    });
+
+  });
+
+  describe('auth:', () => {
+
+    test('Contact requires auth', () => {
+      expect(() =>
+        resolvers.Query.contact(null, {id: mongoose.Types.ObjectId()}, {})
+      ).toThrow(AuthenticationError);
+    });
+
+    test('Contacts requires auth', () => {
+      expect(() => resolvers.Query.contacts(null, {}, {}))
+        .toThrow(AuthenticationError);
+    });
+
+    test('NewContact requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.newContact(
+          null,
+          {
+            input: {
+              firstName: 'alice',
+              lastName: 'bob',
+              email: 'alice@mail.com',
+              role: 'chef',
+              bio: 'This is a sample biography'
+            }
+          },
+          {}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.newContact(
+          null,
+          {
+            input: {
+              firstName: 'alice',
+              lastName: 'bob',
+              email: 'alice@mail.com',
+              role: 'chef',
+              bio: 'This is a sample biography'
+            }
+          },
+          {user: {role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
+    });
+
+    test('updateContact requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.updateContact(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            input: {email: 'alice.bob@mail.com'}
+          },
+          {}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.updateContact(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            input: {email: 'alice.bob@mail.com'}
+          },
+          {user: {role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
+    });
+
+    test('removeContact requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.removeContact(
+          null,
+          {id: mongoose.Types.ObjectId()},
+          {}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.removeContact(
+          null,
+          {id: mongoose.Types.ObjectId()},
+          {user: {role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
+    });
+
+    test('messageContact requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.messageContact(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            text: 'test message',
+          },
+          {user: {_id: mongoose.Types.ObjectId()}}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.messageContact(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            text: 'test message',
+          },
+          {user: {_id: mongoose.Types.ObjectId(), role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
     });
 
   });

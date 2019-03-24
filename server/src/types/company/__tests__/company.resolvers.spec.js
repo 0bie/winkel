@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import {AuthenticationError} from 'apollo-server';
 
 import {Company} from '../company.model/';
 import resolvers from '../company.resolvers';
@@ -22,7 +23,6 @@ describe('Resolvers', () => {
     });
 
     test('Company can query all companies', async () => {
-      // const user = mongoose.Types.ObjectId();
       const companies = await Company.create([
         {
           name: 'test company',
@@ -105,6 +105,115 @@ describe('Resolvers', () => {
         user: {role: 'admin'}
       });
       expect(`${result._id}`).toBe(`${company._id}`);
+    });
+
+  });
+
+  describe('auth:', () => {
+
+    test('Company requires auth', () => {
+      expect(() =>
+        resolvers.Query.company(null, {id: mongoose.Types.ObjectId()}, {})
+      ).toThrow(AuthenticationError);
+    });
+
+    test('Companies requires auth', () => {
+      expect(() => resolvers.Query.companies(null, {}, {}))
+        .toThrow(AuthenticationError);
+    });
+
+    test('NewCompany requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.newCompany(
+          null,
+          {
+            name: 'test company',
+            location: 'Hamilton, ON',
+            quantity: 'retail'
+          },
+          {}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.newCompany(
+          null,
+          {
+            input: {
+              name: 'test company',
+              location: 'Hamilton, ON',
+              quantity: 'retail'
+            }
+          },
+          {user: {role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
+    });
+
+    test('updateCompany requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.updateCompany(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            input: {name: 'new company name'}
+          },
+          {}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.updateCompany(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            input: {name: 'new company name'}
+          },
+          {user: {role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
+    });
+
+    test('removeCompany requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.removeCompany(
+          null,
+          {id: mongoose.Types.ObjectId()},
+          {}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.removeCompany(
+          null,
+          {id: mongoose.Types.ObjectId()},
+          {user: {role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
+    });
+
+    test('sendOrder requires admin role', () => {
+      expect(() =>
+        resolvers.Mutation.sendOrder(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            units: 100,
+            products: [],
+            lead: mongoose.Types.ObjectId()
+          },
+          {}
+        )
+      ).toThrow(AuthenticationError);
+      expect(() =>
+        resolvers.Mutation.sendOrder(
+          null,
+          {
+            id: mongoose.Types.ObjectId(),
+            units: 100,
+            products: [],
+            lead: mongoose.Types.ObjectId()
+          },
+          {user: {role: 'member'}}
+        )
+      ).toThrow(AuthenticationError);
     });
 
   });
