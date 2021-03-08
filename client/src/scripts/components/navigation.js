@@ -19,20 +19,18 @@ const Navigation = ({state, handleMenuPanel}) => {
           <li className="navigation-item">
             <a href="#">sign out</a>
           </li>
-          {state.drawer.context ?
-            <li className="navigation-item">
-              <Button
-                size="sm"
-                tabIndex="0"
-                onClick={handleMenuPanel.bind(null, state.drawer.context)}
-                classNames={['btn--menu']}
-              >
-                <div className="icon icon--menu vert--mid">
-                  <span className="bar" />
-                </div>
-              </Button>
-            </li>
-            : null}
+          <li className="navigation-item">
+            <Button
+              size="sm"
+              tabIndex="0"
+              onClick={handleMenuPanel.bind(null, state.drawer.context)}
+              classNames={['btn--menu']}
+            >
+              <div className="icon icon--menu vert--mid">
+                <span className="bar" />
+              </div>
+            </Button>
+          </li>
         </ul>
       </nav>
     </Fragment>

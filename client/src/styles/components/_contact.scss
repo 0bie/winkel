@@ -129,3 +129,50 @@
     margin-bottom: 15.625em;
   }
 }
+
+// Placeholder
+
+.contact .biography-text.placeholder {
+    font-size: 0;
+    height: 147px;
+    background-color: #fafafa;
+}
+
+.contact-media.placeholder .avatar {
+    background-color: #fafafa;
+}
+
+.contact-media.placeholder .avatar-text {
+    font-size: 0;
+}
+
+.contact-headline.placeholder {
+    height: 54px;
+    font-size: 0;
+    background-color: #fafafa;
+}
+
+.contact-headline.placeholder * {
+    font-size: 0;
+}
+
+.contact-actions.placeholder {
+    height: 32px;
+    background-color: #fafafa;
+}
+
+.contact-actions.placeholder * {
+    opacity: 0;
+}
+
+.contact-footer.placeholder .contact-social {
+    background-color: #fafafa;
+}
+
+.contact-footer.placeholder .contact-social * {
+    opacity: 0;
+}
+
+.contact-footer.placeholder button {
+    background-color: #fafafa;
+}
