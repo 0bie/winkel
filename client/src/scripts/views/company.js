@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Notice} from '@0bie/pattern-lib-react';
+import {Button} from '@0bie/pattern-lib-react';
 import {CompanyItem, Sidebar} from '../components';
 import connect from '../store/connect';
 import {
@@ -8,6 +8,7 @@ import {
   handleCompanyOffer
 } from './company/utils';
 import {sortObjects} from '../utils';
+import CompanyPlaceholder from '../components/placeholder/companies';
 
 const Company = ({state, actions}) => {
 
@@ -37,9 +38,7 @@ const Company = ({state, actions}) => {
               handleDelete={handleCompanyDelete.bind(null, toggleFlyout, company)}
             />)}
           {!companies || companies.length <= 0 &&
-            <li className="company-item">
-              <Notice message="There are no companies available." />
-            </li>}
+            <CompanyPlaceholder />}
         </ul>
       </section>
       <Sidebar />

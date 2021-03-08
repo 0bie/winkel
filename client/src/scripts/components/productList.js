@@ -1,6 +1,6 @@
 import React from 'react';
-import {Notice} from '@0bie/pattern-lib-react';
 import {ProductItem} from './index';
+import ProductPlaceholder from './placeholder/productItem';
 
 export default function ProductList({items, handleOrder}) {
 
@@ -21,9 +21,11 @@ export default function ProductList({items, handleOrder}) {
 function renderEmptyList(items) {
   if (!items || !items.length > 0) {
     return (
-      <li className="list-empty">
-        <Notice message="There are no products available." />
-      </li>
+      <ul className="cardlist">
+        {[...new Array(8)].map((_, index) => (
+          <ProductPlaceholder key={index} />
+        ))}
+      </ul>
     );
   }
 }

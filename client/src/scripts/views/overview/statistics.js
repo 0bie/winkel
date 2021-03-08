@@ -30,10 +30,10 @@ const Statistics = ({state}) => {
                   {formatNumber(state.contact.contacts.length)}
                 </span>
               </div>
+              <footer className="stats-footer">
+                <ContactChart />
+              </footer>
             </Fragment>}
-          <footer className="stats-footer">
-            <ContactChart />
-          </footer>
         </li>
         <li className="stats-item width-50--small">
           {state.product.products &&
@@ -52,10 +52,10 @@ const Statistics = ({state}) => {
                   {formatNumber(state.product.products.length)}
                 </span>
               </div>
+              <footer className="stats-footer">
+                <ProductChart />
+              </footer>
             </Fragment>}
-          <footer className="stats-footer">
-            <ProductChart />
-          </footer>
         </li>
         <li className="stats-item">
           {state.company.companies &&
@@ -74,10 +74,10 @@ const Statistics = ({state}) => {
                   {formatNumber(state.company.companies.length)}
                 </span>
               </div>
+              <footer className="stats-footer">
+                <CompanyChart />
+              </footer>
             </Fragment>}
-          <footer className="stats-footer">
-            <CompanyChart />
-          </footer>
         </li>
       </ul>
     </section>

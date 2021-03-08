@@ -17,6 +17,18 @@
   box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.2);
 }
 
+@media (min-width: 600px) and (max-width: 1019px) {
+  .overview .stats-item {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 1020px) {
+  .overview .stats-item {
+    min-height: 230px;
+  }
+}
+
 .overview .stats-header {
   min-height: 3.375em;
   margin-bottom: size(xs);
@@ -82,6 +94,7 @@
 
 @include breakpoint('min', 957px) {
   .overview .stats-list {
+    min-height: 312px;
     padding: size(md);
   }
 }

@@ -184,3 +184,36 @@
     padding-bottom: 250px;
   }
 }
+
+// Placeholder
+
+.company-item.placeholder {
+    width: 100%;
+}
+
+.company-item.placeholder .company-media {
+    background-color: #fafafa;
+}
+
+.company-item.placeholder .company-media * {
+    opacity: 0;
+}
+
+.company-content.placeholder * {
+    background-color: #fafafa;
+    height: 45px;
+    font-size: 0;
+}
+
+.company-content.placeholder .btn-text {
+    opacity: 0;
+}
+
+.company-item.placeholder .company-actions {
+    height: 30px;
+    width: 100px;
+}
+
+.company-item.placeholder button {
+    background-color: #fafafa;
+}

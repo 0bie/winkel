@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Button, Notice} from '@0bie/pattern-lib-react';
+import {Button} from '@0bie/pattern-lib-react';
 import connect from '../store/connect';
 import {ContactCard, Sidebar}from '../components';
 import {
@@ -9,6 +9,7 @@ import {
   handleContactMessage
 } from './contact/utils';
 import {sortObjects} from '../utils';
+import ContactPlaceholder from '../components/placeholder/contacts';
 
 const Contact = ({state, actions}) => {
 
@@ -38,7 +39,7 @@ const Contact = ({state, actions}) => {
             handleMessage={handleContactMessage.bind(null, toggleFlyout, contact)}
           />)}
         {contacts.length === 0 &&
-          <Notice message="There are no contacts available" />}
+          <ContactPlaceholder />}
       </div>
       <Sidebar />
     </Fragment>
