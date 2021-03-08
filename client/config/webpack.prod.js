@@ -1,6 +1,5 @@
 const webpack = require('webpack');
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = {
@@ -11,7 +10,6 @@ module.exports = {
   optimization: {
     nodeEnv: 'production',
     usedExports: true,
-    occurrenceOrder: true,
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
@@ -25,16 +23,8 @@ module.exports = {
     }
   },
   plugins: [
-    new ManifestPlugin(),
+    new WebpackManifestPlugin(),
     new MomentLocalesPlugin(),
-    new webpack.HashedModuleIdsPlugin(),
-    new CompressionWebpackPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.(js|html|css)$/,
-      threshold: 10240,
-      minRatio: 0.8
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     })

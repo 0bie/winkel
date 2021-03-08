@@ -1,3 +1,4 @@
+const path = require('path')
 const webpack = require('webpack');
 const commonPaths = require('./common-paths');
 const {cssLoader, postcssLoader, scssLoader} = require('./postcss.config')();
@@ -18,6 +19,7 @@ module.exports = {
     ]
   },
   output: {
+    publicPath: path.resolve(__dirname, '../'),
     path: commonPaths.outputPath
   },
   resolve: {
@@ -70,9 +72,8 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true
+            parallel: true,
+            extractComments: false
       }),
       new OptimizeCssAssetsPlugin({
         cssProcessorPluginOptions: {
@@ -94,7 +95,7 @@ module.exports = {
       template: './index.html',
       inlineSource: 'runtime.+\\.js'
     }),
-    new HtmlWebpackInlineSourcePlugin(),
+    new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[chunkhash:8].css',
       chunkFilename: 'styles/[id].css'
